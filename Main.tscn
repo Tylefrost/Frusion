@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://bc04jgq832nvc"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dm5jrnxmxnuof" path="res://Grape.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://dkq1swbmmxmbq" path="res://assets/Bouncy Platform Long.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://c1oypx0ox61ky" path="res://Strawberry.tscn" id="4_pn7g8"]
+[ext_resource type="PackedScene" uid="uid://dwy6grf8g1nci" path="res://Orange.tscn" id="5_mvbrm"]
+[ext_resource type="PackedScene" uid="uid://dqtdi08icgep5" path="res://Watermelon.tscn" id="6_wr2de"]
+
+[sub_resource type="PhysicsMaterial" id="5"]
+bounce = 0.5
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 28.7617
+height = 1567.79
+
+[sub_resource type="PhysicsMaterial" id="7"]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="8"]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="9"]
+bounce = 0.5
+
+[node name="Main" type="Node"]
+script = ExtResource("1")
+Grape = ExtResource("2")
+Strawberry = ExtResource("4_pn7g8")
+Orange = ExtResource("5_mvbrm")
+Watermelon = ExtResource("6_wr2de")
+
+[node name="WallContainer" type="Node" parent="."]
+
+[node name="Wall4" type="StaticBody2D" parent="WallContainer"]
+position = Vector2(1996, 1210)
+rotation = -1.5708
+physics_material_override = SubResource("5")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallContainer/Wall4"]
+position = Vector2(2.89702, -2.87401)
+scale = Vector2(1.91747, 1)
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall4"]
+position = Vector2(4.89701, -2.87401)
+rotation = 1.5708
+shape = SubResource("2")
+metadata/_edit_group_ = true
+
+[node name="Wall7" type="StaticBody2D" parent="WallContainer"]
+position = Vector2(1995, 794)
+rotation = -1.5708
+physics_material_override = SubResource("5")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallContainer/Wall7"]
+position = Vector2(77.6239, -2.87401)
+scale = Vector2(2.40588, 1)
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall7"]
+position = Vector2(4.89701, -2.87401)
+rotation = 1.5708
+shape = SubResource("2")
+metadata/_edit_group_ = true
+
+[node name="Wall8" type="StaticBody2D" parent="WallContainer"]
+position = Vector2(1035, 796)
+rotation = -1.5708
+physics_material_override = SubResource("5")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallContainer/Wall8"]
+position = Vector2(78.2911, -2.87401)
+scale = Vector2(2.41024, 1)
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall8"]
+position = Vector2(4.89701, -2.87401)
+rotation = 1.5708
+shape = SubResource("2")
+metadata/_edit_group_ = true
+
+[node name="Wall5" type="StaticBody2D" parent="WallContainer"]
+position = Vector2(1032, 1203)
+rotation = 1.5708
+physics_material_override = SubResource("7")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallContainer/Wall5"]
+position = Vector2(-1.11113, 0)
+scale = Vector2(1.93199, 1)
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall5"]
+rotation = 1.5708
+shape = SubResource("2")
+
+[node name="Wall3" type="StaticBody2D" parent="WallContainer"]
+position = Vector2(1399, 1366)
+physics_material_override = SubResource("8")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallContainer/Wall3"]
+position = Vector2(-122.133, 35.616)
+scale = Vector2(1.76879, 1)
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall3"]
+position = Vector2(-97.133, 35.616)
+rotation = 1.5708
+shape = SubResource("2")
+
+[node name="Wall6" type="StaticBody2D" parent="WallContainer"]
+position = Vector2(1701.53, 1366.84)
+physics_material_override = SubResource("9")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallContainer/Wall6"]
+position = Vector2(26.333, 35.774)
+scale = Vector2(1.93464, 1)
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall6"]
+position = Vector2(26.333, 34.774)
+rotation = 1.5708
+shape = SubResource("2")

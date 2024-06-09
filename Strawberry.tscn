@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1oypx0ox61ky"]
+
+[ext_resource type="Script" path="res://Strawberry.gd" id="1_3mc1v"]
+[ext_resource type="Texture2D" uid="uid://dv6rx85s1gy3i" path="res://assets/ballBlue_10.png" id="1_e88sr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnr68"]
+radius = 76.0592
+
+[node name="Strawberry" type="RigidBody2D" groups=["strawberries"]]
+position = Vector2(1512, 90)
+script = ExtResource("1_3mc1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fnr68")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e88sr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
