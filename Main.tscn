@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc04jgq832nvc"]
+[gd_scene load_steps=15 format=3 uid="uid://bc04jgq832nvc"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dm5jrnxmxnuof" path="res://Grape.tscn" id="2"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c1oypx0ox61ky" path="res://Strawberry.tscn" id="4_pn7g8"]
 [ext_resource type="PackedScene" uid="uid://dwy6grf8g1nci" path="res://Orange.tscn" id="5_mvbrm"]
 [ext_resource type="PackedScene" uid="uid://dqtdi08icgep5" path="res://Watermelon.tscn" id="6_wr2de"]
+[ext_resource type="Script" path="res://Deadzone.gd" id="7_f4r76"]
+[ext_resource type="Script" path="res://Lose_message.gd" id="8_gr3iw"]
 
 [sub_resource type="PhysicsMaterial" id="5"]
 bounce = 0.5
@@ -22,6 +24,9 @@ bounce = 0.5
 
 [sub_resource type="PhysicsMaterial" id="9"]
 bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buucv"]
+size = Vector2(879, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("1")
@@ -121,3 +126,34 @@ texture = ExtResource("3")
 position = Vector2(26.333, 34.774)
 rotation = 1.5708
 shape = SubResource("2")
+
+[node name="Lose_message" type="Label" parent="."]
+top_level = true
+z_index = 1
+offset_left = 1084.0
+offset_top = 651.0
+offset_right = 1997.0
+offset_bottom = 1288.0
+theme_override_font_sizes/font_size = 200
+text = "You Lose "
+horizontal_alignment = 1
+script = ExtResource("8_gr3iw")
+
+[node name="Deadzone" type="Area2D" parent="."]
+script = ExtResource("7_f4r76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
+position = Vector2(1513.5, 416)
+shape = SubResource("RectangleShape2D_buucv")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 2304.0
+offset_top = 718.0
+offset_right = 2547.0
+offset_bottom = 910.0
+theme_override_font_sizes/font_size = 100
+text = "Score:
+"
+
+[connection signal="body_entered" from="Deadzone" to="Deadzone" method="_on_body_entered"]
+[connection signal="body_exited" from="Deadzone" to="Deadzone" method="_on_body_exited"]

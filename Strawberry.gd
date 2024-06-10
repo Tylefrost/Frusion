@@ -18,4 +18,4 @@ func _on_body_entered(body):
 		body.contact_monitor = false
 		body.queue_free()
 		queue_free()
-		main.spawn_fruit(2,new_pos)
+		main.spawn_fruit(2,new_pos,20)
