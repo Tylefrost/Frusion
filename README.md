@@ -1,3 +1,3 @@
-# Sphere-Fusion
+# Frusion
 #### Video Demo:
 #### Description:
