@@ -15,8 +15,10 @@ and the score counter
 #### Main:
 This script controls the main scene which is the one you see when you press play. 
 
-We first extend the main node which just means that this script applies to the main scene.
+##### Lines 1: 
+Extends the main node which just means that this script applies to the main scene.
 
+##### Lines 4-7:
 Then we export all of our fruits as a "PackedScene" which means that we can create multiple instances of the same scene, meaning we can make multiple copies
 of the same fruit.
 
