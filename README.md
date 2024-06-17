@@ -25,11 +25,13 @@ of the same fruit.
 Creates list variable of all the fruit types and another variable to randomly select the first fruit spawned in the scene
 
 **Lines 14-15:**
-Creates 2 check variables for whether or not the fruit should follow the mouse cursor
+Creates 2 check variables to handle when and which fruits should follow the mouse cursor 
 
 **Lines 18-19:**
+Creates 1 variable to count score and 1 variable to hold the filepath to the score label on the 2D model of the main scene
 
 **Lines 22:**
+func _input(_event):
 **Lines 25:**
 **Lines 28:**
 **Lines 31-32:**
