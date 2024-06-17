@@ -29,9 +29,10 @@ Creates 2 check variables to handle when and which fruits should follow the mous
 
 **Lines 18-19:**
 Creates 1 variable to count score and 1 variable to hold the filepath to the score label on the 2D model of the main scene
+amous
 
 **Lines 22:**
-func _input(_event):
+func_input(_event):
 **Lines 25:**
 **Lines 28:**
 **Lines 31-32:**
