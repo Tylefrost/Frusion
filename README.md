@@ -13,7 +13,7 @@ and the score counter
 ### Main:
 This script controls the main scene which is the one you see when you press play. As a whole it handles the spawning of fruits, the dropping of those fruits,
 the spawning of the new fused fruits, and the game over when the bucket is filled.
-**
+```
 #Access all the fruits
 @export var Grape: PackedScene
 @export var Strawberry: PackedScene
@@ -94,7 +94,7 @@ func _process(_delta):
 #Ends the game
 func gameover():
 	get_tree().paused = true
-**
+```
 **Lines 1:**
 Extends the main node which just means that this script applies to the main scene.
 
