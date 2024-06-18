@@ -7,9 +7,7 @@ to drop your fruits.
 ## Scenes:
 ### Main:
 This scene is the one you see when you press play.
-I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. After that it was just adding text labels to display the losing message and the score counter
-
-
+I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. I also added text labels to display the losing message and the score counter
 
 ## Scripting:
 
@@ -34,7 +32,7 @@ of the same fruit.
 ```
 
 **Lines 10-11:**
-Creates fruit_types list variable which contains all of the fruit types
+Creates fruit_types list variable which contains all of the fruit types\
 Creates the new_fruit variable which randomly selects a fruit from fruit_types to be the first fruit spawned 
 ```
 @onready var fruit_types = [Grape,Strawberry,Orange,Watermelon]
