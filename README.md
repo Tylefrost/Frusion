@@ -34,21 +34,24 @@ of the same fruit.
 ```
 
 **Lines 10-11:**
-Creates list variable of all the fruit types and another variable to randomly select the first fruit spawned in the scene
+Creates fruit_types list variable which contains all of the fruit types
+Creates the new_fruit variable which randomly selects a fruit from fruit_types to be the first fruit spawned 
 ```
 @onready var fruit_types = [Grape,Strawberry,Orange,Watermelon]
 @onready var new_fruit = fruit_types[randi() % (fruit_types.size() - 2)].instantiate()
 ```
 
 **Lines 14-15:**
-Creates 2 check variables to handle when and which fruits should follow the mouse cursor 
+Creates is_ready variable to prevent a function from being called again while the previous call is still ongoing
+Creates is_following_mouse variable to handle when fruits should follow the mouse cursor and when then should drop normally
 ```
 @onready var is_ready = true
 var is_following_mouse = true
 ```
 
 **Lines 18-19:**
-Creates 1 variable to count score and 1 variable to hold the filepath to the score label on the 2D model of the main scene
+Creates score variable to count score 
+Creates score_path variable to hold the filepath to the score label on the 2D model of the main scene
 ```
 @onready var score = 0
 @onready var score_path = get_node("/root/Main/Score")
@@ -60,7 +63,8 @@ Called whenever an input event occurs and passes an event variable that returns 
 func _input(_event):
 ```
 
-**Lines 25:**
+**Line 25:**
+Runs the function if the player clicks and i
 ```
 	#Run function on mouse 1 press and check that 
 	#previous function call has finished
