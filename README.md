@@ -5,15 +5,21 @@ Frusion is a game where you drop fruit into a bucket and attempt to fuse fruit t
 the more points you get! Try to get the most amount of points before the bucket overfills with fruit. Use your mouse to move around and choose where you want
 to drop your fruits.
 ## Scenes:
-I used stock sprite assets from Godot to make the sprite images for the bucket and fruits. Then I simply added collision boxes for each object
-I only changed the sizes of the balls to indicate the different types of fruit. After that it was just adding text labels to display the losing message
-and the score counter
+### Main:
+This scene is the one you see when you press play.
+I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. After that it was just adding text labels to display the losing message and the score counter
+
+
 
 ## Scripting:
 ### Main:
 This script controls the main scene which is the one you see when you press play. As a whole it handles the spawning of fruits, the dropping of those fruits,
 the spawning of the new fused fruits, and the game over when the bucket is filled.
 ```
+**Lines 1:**
+Extends the main node which just means that this script applies to the main scene.
+extends Node
+
 #Access all the fruits
 @export var Grape: PackedScene
 @export var Strawberry: PackedScene
