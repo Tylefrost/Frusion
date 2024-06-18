@@ -12,6 +12,7 @@ I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then
 
 
 ## Scripting:
+
 ### Main:
 This script controls the main scene which is the one you see when you press play. As a whole it handles the spawning of fruits, the dropping of those fruits,
 the spawning of the new fused fruits, and the game over when the bucket is filled.
@@ -22,25 +23,39 @@ Extends the main node which just means that this script applies to the main scen
 extends Node
 ```
 
-#Access all the fruits
+**Lines 4-7:**
+Exports all of our fruits as "PackedScene" which means that we can create multiple instances of the same scene, meaning we can make multiple copies
+of the same fruit.
+```
 @export var Grape: PackedScene
 @export var Strawberry: PackedScene
 @export var Orange: PackedScene
 @export var Watermelon: PackedScene
+```
 
-#Creating variables to handle the fruit in the main scene
+**Lines 10-11:**
+Creates list variable of all the fruit types and another variable to randomly select the first fruit spawned in the scene
+```
 @onready var fruit_types = [Grape,Strawberry,Orange,Watermelon]
 @onready var new_fruit = fruit_types[randi() % (fruit_types.size() - 2)].instantiate()
+```
 
-#Check variables
+**Lines 14-15:**
+Creates 2 check variables to handle when and which fruits should follow the mouse cursor 
+```
 @onready var is_ready = true
 var is_following_mouse = true
+```
 
-#Keeping score
+**Lines 18-19:**
+Creates 1 variable to count score and 1 variable to hold the filepath to the score label on the 2D model of the main scene
+```
 @onready var score = 0
 @onready var score_path = get_node("/root/Main/Score")
+```
 
-
+**Lines 22-55:**
+```
 func _input(_event):
 	#Run function on mouse 1 press and check that 
 	#previous function call has finished
@@ -75,7 +90,9 @@ func _input(_event):
 		
 		#Now function is ready to be called again
 		is_ready = true
-		
+```
+
+```
 #Spawning the "fused fruit"
 func spawn_fruit(type, pos, scoring):
 	var fruit = fruit_types[type].instantiate()
@@ -86,39 +103,28 @@ func spawn_fruit(type, pos, scoring):
 	#Adding score for sucessful fusions
 	score += scoring
 	score_path.set_text("Score: " + str(score))
-	
-	
+```	
+
+ ```
 func _ready():
 	#Spawning first fruit of the game
 	new_fruit.gravity_scale = 0.0
 	add_child(new_fruit)
-	
-	
+```
+
+```
 func _process(_delta):
 	#Implementing the lock onto the mouse
 	if is_following_mouse:
 		new_fruit.move_and_collide(Vector2(get_viewport().get_mouse_position().x - new_fruit.position.x,0.0))
-		
+```
+
+```
 #Ends the game
 func gameover():
 	get_tree().paused = true
 ```
-**Lines 1:**
-Extends the main node which just means that this script applies to the main scene.
 
-**Lines 4-7:**
-Exports all of our fruits as "PackedScene" which means that we can create multiple instances of the same scene, meaning we can make multiple copies
-of the same fruit.
-
-**Lines 10-11:**
-Creates list variable of all the fruit types and another variable to randomly select the first fruit spawned in the scene
-
-**Lines 14-15:**
-Creates 2 check variables to handle when and which fruits should follow the mouse cursor 
-
-**Lines 18-19:**
-Creates 1 variable to count score and 1 variable to hold the filepath to the score label on the 2D model of the main scene
-amous
 
 **Lines 22:**
 func_input(_event):
