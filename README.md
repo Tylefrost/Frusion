@@ -15,10 +15,12 @@ I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then
 ### Main:
 This script controls the main scene which is the one you see when you press play. As a whole it handles the spawning of fruits, the dropping of those fruits,
 the spawning of the new fused fruits, and the game over when the bucket is filled.
-```
-**Lines 1:**
+
+**Line 1:**
 Extends the main node which just means that this script applies to the main scene.
+```
 extends Node
+```
 
 #Access all the fruits
 @export var Grape: PackedScene
