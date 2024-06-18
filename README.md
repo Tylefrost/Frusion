@@ -54,13 +54,18 @@ Creates 1 variable to count score and 1 variable to hold the filepath to the sco
 @onready var score_path = get_node("/root/Main/Score")
 ```
 
-**Lines 22-55:**
+**Line 22:**
+Called whenever an input event occurs and passes an event variable that returns the input type and related information
 ```
 func _input(_event):
+```
+
+**Lines 25:**
+```
 	#Run function on mouse 1 press and check that 
 	#previous function call has finished
 	if Input.is_action_pressed("click") and is_ready == true:
-		
+```
 		#Set check variable to false to prevent concurrent calls
 		is_ready = false
 		
