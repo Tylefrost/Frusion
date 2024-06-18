@@ -15,13 +15,13 @@ I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then
 This script controls the main scene which is the one you see when you press play. As a whole it handles the spawning of fruits, the dropping of those fruits,
 the spawning of the new fused fruits, and the game over when the bucket is filled.
 
-**Line 1:**
+**Line 1:**\
 Extends the main node which just means that this script applies to the main scene.
 ```
 extends Node
 ```
 
-**Lines 4-7:**
+**Lines 4-7:**\
 Exports all of our fruits as "PackedScene" which means that we can create multiple instances of the same scene, meaning we can make multiple copies
 of the same fruit.
 ```
@@ -31,7 +31,7 @@ of the same fruit.
 @export var Watermelon: PackedScene
 ```
 
-**Lines 10-11:**
+**Lines 10-11:**\
 Creates fruit_types list variable which contains all of the fruit types\
 Creates the new_fruit variable which randomly selects a fruit from fruit_types to be the first fruit spawned 
 ```
@@ -39,16 +39,16 @@ Creates the new_fruit variable which randomly selects a fruit from fruit_types t
 @onready var new_fruit = fruit_types[randi() % (fruit_types.size() - 2)].instantiate()
 ```
 
-**Lines 14-15:**
-Creates is_ready variable to prevent a function from being called again while the previous call is still ongoing
+**Lines 14-15:**\
+Creates is_ready variable to prevent a function from being called again while the previous call is still ongoing\
 Creates is_following_mouse variable to handle when fruits should follow the mouse cursor and when then should drop normally
 ```
 @onready var is_ready = true
 var is_following_mouse = true
 ```
 
-**Lines 18-19:**
-Creates score variable to count score 
+**Lines 18-19:**\
+Creates score variable to count score\
 Creates score_path variable to hold the filepath to the score label on the 2D model of the main scene
 ```
 @onready var score = 0
