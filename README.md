@@ -55,79 +55,122 @@ Creates score_path variable to hold the filepath to the score label on the 2D mo
 @onready var score_path = get_node("/root/Main/Score")
 ```
 
-**Line 22:**
+**Line 22:**\
 Called whenever an input event occurs and passes an event variable that returns the input type and related information
 ```
 func _input(_event):
 ```
 
-**Line 25:**
-Runs the function if the player clicks and i
+**Line 25:**\
+Runs the function if the player clicks and the previous function call has finished (is_ready = true)
 ```
-	#Run function on mouse 1 press and check that 
-	#previous function call has finished
 	if Input.is_action_pressed("click") and is_ready == true:
+```
+
+**Lines 28:**\
+Set is_ready to false since now function call is in progress
 ```
 		#Set check variable to false to prevent concurrent calls
 		is_ready = false
-		
-		#Turn off mouse following and drop the current fruit
+```
+
+**Lines 31-32:**\
+Turns off mouse following\ 
+Drops the current fruit 
+```
 		is_following_mouse = false
 		new_fruit.gravity_scale = 1.0
-		
+```
+
+**Lines 35-37:**\
+Creates new fruit in the dropper (not spawned yet)
+Turns off falling 
+```
 		#Creates new fruit 
 		var next_fruit = fruit_types[randi() % (fruit_types.size() - 2)]
 		new_fruit = next_fruit.instantiate()
 		new_fruit.gravity_scale = 0.0
-		
+```
+
+**Line 40:**\
+Wait for 0.7 seconds for previous fruit to finish falling so it doesn't collide with the new fruit when we spawn the new fruit in 
+```
 		#Wait for 0.7 seconds for previous fruit to finish falling
 		await get_tree().create_timer(0.7).timeout
-		
+```
+
+**Lines 44-46:**\
+Make the the new fruit invisible and set it to follow the mouse before finally spawning it in
+```
 		#Make the new fruit invisible and set 
 		#to follow mouse before spawning in new fruit
 		new_fruit.hide()
 		is_following_mouse = true
 		add_child(new_fruit)
-		
-		#Wait for brief moment to allow the new fruit to 
-		#lock onto mouse position before making the fruit 
-		#visible to prevent "motion blur" effect
+```
+
+**Lines 51-52:**\
+Wait for brief moment to allow the new fruit to lock onto mouse position before making the fruit visible to prevent "motion blur" effect
+```
 		await get_tree().create_timer(0.005).timeout
 		new_fruit.set_visible(true)
-		
+```
+
+**Lines 55:**\
+Set is_ready back to true since now the function call is finished
+```
 		#Now function is ready to be called again
 		is_ready = true
 ```
 
+**Lines 58-62:**\
+Function for spawning the "fused fruits"
 ```
-#Spawning the "fused fruit"
 func spawn_fruit(type, pos, scoring):
 	var fruit = fruit_types[type].instantiate()
 	fruit.position = pos
 	fruit.gravity_scale = 1.0
 	add_child.call_deferred(fruit)
-	
+```
+
+**Lines 65-66:**\
+Adding to the score for successful fusions
+```
 	#Adding score for sucessful fusions
 	score += scoring
 	score_path.set_text("Score: " + str(score))
-```	
+```
 
- ```
+**Lines 69:**\
+Called only once at the very beginning of the program
+```
 func _ready():
+```
+
+**Lines 71-72:**\
+Spawns the first fruit of the game
+```
 	#Spawning first fruit of the game
 	new_fruit.gravity_scale = 0.0
 	add_child(new_fruit)
 ```
 
+**Lines 75:**\
+Called every frame of the program 
 ```
 func _process(_delta):
-	#Implementing the lock onto the mouse
+```
+
+**Lines 77-78:**\
+If is_following_mouse is true then make the fruit lock onto the mouse position
+```
 	if is_following_mouse:
 		new_fruit.move_and_collide(Vector2(get_viewport().get_mouse_position().x - new_fruit.position.x,0.0))
 ```
 
+**Lines 81-82:**\
+Ends the game
 ```
-#Ends the game
 func gameover():
 	get_tree().paused = true
 ```
