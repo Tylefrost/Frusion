@@ -175,25 +175,180 @@ func gameover():
 	get_tree().paused = true
 ```
 
-
-**Lines 22:**
-func_input(_event):
-**Lines 25:**
-**Lines 28:**
-**Lines 31-32:**
-**Lines 35-37:**
-**Lines 40:**
-**Lines 44-46:**
-**Lines 51-52:**
-**Lines 55:**
-**Lines 58-62:**
-**Lines 65-66:**
-**Lines 69:**
-**Lines 71-72:**
-**Lines 75:**
-**Lines 77-78:**
-**Lines 81-82:**
 ### Grape:
+**Line 1:**\
+Extends the RigidBody2D node meaning that this script applies to the Grape scene
+```
+extends RigidBody2D
+```
+
+**Line 4:**\
+Called only once at the very beginning of the program
+```
+func _ready():
+```
+
+**Line 6-7:**\
+Make grapes report collisions with other fruits
+```
+	set_contact_monitor(true) 
+	set_max_contacts_reported(1)	
+```
+
+**Lines 11-12:**\
+Called every frame of the program but isn't necessary so we pass
+```
+func _process(_delta):
+	pass
+```
+
+**Line 15:**\
+Function called by the grape when another rigidbody2D passes into or collides with the grape's collision shape
+```
+func _on_body_entered(body):
+```
+
+**Line 18-24:**\
+If the grape collides with another grape then\
+Delete both grapes\
+Spawn in a strawberry at the average of the 2 grapes' positions\
+And add 10 points to the score
+```
+if body.is_in_group("grapes") and body.has_signal("body_entered"):
+		var new_pos = (body.position + position) / 2.0
+		var main = get_node("/root/Main")
+		body.contact_monitor = false
+		body.queue_free()
+		queue_free()
+		main.spawn_fruit(1,new_pos,10)
+```
+
 ### Strawberry:
+**Line 1:**\
+Extends the RigidBody2D node meaning that this script applies to the Strawberry scene
+```
+extends RigidBody2D
+```
+
+**Line 4:**\
+Called only once at the very beginning of the program
+```
+func _ready():
+```
+
+**Line 6-7:**\
+Make strawberries report collisions with other fruits
+```
+	set_contact_monitor(true) 
+	set_max_contacts_reported(1)	
+```
+
+**Lines 11-12:**\
+Called every frame of the program but isn't necessary so we pass
+```
+func _process(_delta):
+	pass
+```
+
+**Line 15:**\
+Function called by the strawberry when another rigidbody2D passes into or collides with the strawberry's collision shape
+```
+func _on_body_entered(body):
+```
+
+**Line 18-24:**\
+If the strawberry collides with another strawberry then\
+Delete both strawberries\
+Spawn in an orange at the average of the 2 strawberries' positions\
+And add 20 points to the score
+```
+if body.is_in_group("strawberries") and body.has_signal("body_entered"):
+		var new_pos = (body.position + position) / 2.0
+		var main = get_node("/root/Main")
+		body.contact_monitor = false
+		body.queue_free()
+		queue_free()
+		main.spawn_fruit(2,new_pos,20)
+```
+
 ### Orange:
+**Line 1:**\
+Extends the RigidBody2D node meaning that this script applies to the Orange scene
+```
+extends RigidBody2D
+```
+
+**Line 4:**\
+Called only once at the very beginning of the program
+```
+func _ready():
+```
+
+**Line 6-7:**\
+Make oranges report collisions with other fruits
+```
+	set_contact_monitor(true) 
+	set_max_contacts_reported(1)	
+```
+
+**Lines 11-12:**\
+Called every frame of the program but isn't necessary so we pass
+```
+func _process(_delta):
+	pass
+```
+
+**Line 15:**\
+Function called by the orange when another rigidbody2D passes into or collides with the orange's collision shape
+```
+func _on_body_entered(body):
+```
+
+**Line 18-24:**\
+If the orange collides with another orange then\
+Delete both oranges\
+Spawn in a watermelon at the average of the 2 oranges' positions\
+And add 30 points to the score
+```
+if body.is_in_group("oranges") and body.has_signal("body_entered"):
+		var new_pos = (body.position + position) / 2.0
+		var main = get_node("/root/Main")
+		body.contact_monitor = false
+		body.queue_free()
+		queue_free()
+		main.spawn_fruit(3,new_pos,30)
+```
+
 ### Watermelon:
+**Line 1:**\
+Extends the RigidBody2D node meaning that this script applies to the Watermelon scene
+```
+extends RigidBody2D
+```
+
+**Line 4:**\
+Called only once at the very beginning of the program
+```
+func _ready():
+```
+
+**Line 6-7:**\
+Make watermelons report collisions with other fruits
+```
+	set_contact_monitor(true) 
+	set_max_contacts_reported(1)	
+```
+
+**Lines 11-12:**\
+Called every frame of the program but isn't necessary so we pass
+```
+func _process(_delta):
+	pass
+```
+
+**Lines 15-16:**\
+Function called by the watermelon when another rigidbody2D passes into or collides with the watermelon's collision shape but isn't necessary so we pass
+```
+func _on_body_entered(body):
+	pass
+```
