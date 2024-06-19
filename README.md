@@ -83,7 +83,7 @@ Drops the current fruit
 ```
 
 **Lines 35-37:**\
-Creates new fruit in the dropper (not spawned yet)
+Creates new fruit in the dropper (not spawned yet)\
 Turns off falling 
 ```
 		#Creates new fruit 
