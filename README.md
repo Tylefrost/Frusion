@@ -75,7 +75,7 @@ Set is_ready to false since now function call is in progress
 ```
 
 **Lines 31-32:**\
-Turns off mouse following\ 
+Turns off mouse following\
 Drops the current fruit 
 ```
 		is_following_mouse = false
