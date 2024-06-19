@@ -1,25 +1,25 @@
 # Frusion
-# Video Demo:
-# Description:
+## Video Demo:
+## Description:
 Frusion is a 2D game made in the Godot engine where you drop fruit into a bucket and attempt to fuse fruit together into a larger fruit by getting 2 of the same size of fruit to touch. The bigger the fusion 
 the more points you get! Try to get the most amount of points before the bucket overflows with fruit. Use your mouse to move around and choose where you want
 to drop your fruits to fuse as many as possible.
-# Scenes:
+## Scenes:
 ## Main:
 This scene is the one you see when you press play.
 I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. I also added text labels to display the losing message and the score counter
-## Grape:
+### Grape:
 This scene is the smallest fruit in the game (index position 0 in fruit_types) and can only be spawned in the dropper
-## Strawberry:
+### Strawberry:
 This scene is the 2nd smallest fruit in the game (index position 1 in fruit_types) and can be spawned in the dropper or when 2 grapes fuse
-## Orange:
+### Orange:
 This scene is the 2nd largest fruit in the game (index position 2 in fruit_types) and can only be spawned when 2 strawberries fuse
-## Watermelon:
+### Watermelon:
 This scene is the largest fruit in the game (index position 3 in fruit_types) and can only be spawned when 2 oranges fuse\
 
-# Scripting:
+## Scripting:
 
-## Main:
+### Main:
 This script controls the main scene which is the one you see when you press play. As a whole it handles the spawning of fruits, the dropping of those fruits,
 the spawning of the new fused fruits, and the game over when the bucket is filled.
 
@@ -231,7 +231,7 @@ if body.is_in_group("grapes") and body.has_signal("body_entered"):
 		main.spawn_fruit(1,new_pos,10)
 ```
 
-## Strawberry:
+### Strawberry:
 **Line 1:**\
 Extends the RigidBody2D node meaning that this script applies to the Strawberry scene
 ```
@@ -279,7 +279,7 @@ if body.is_in_group("strawberries") and body.has_signal("body_entered"):
 		main.spawn_fruit(2,new_pos,20)
 ```
 
-## Orange:
+### Orange:
 **Line 1:**\
 Extends the RigidBody2D node meaning that this script applies to the Orange scene
 ```
@@ -327,7 +327,7 @@ if body.is_in_group("oranges") and body.has_signal("body_entered"):
 		main.spawn_fruit(3,new_pos,30)
 ```
 
-## Watermelon:
+### Watermelon:
 **Line 1:**\
 Extends the RigidBody2D node meaning that this script applies to the Watermelon scene
 ```
@@ -361,7 +361,7 @@ func _on_body_entered(body):
 	pass
 ```
 
-## Deadzone:
+### Deadzone:
 **Line 1:**\
 Entends the Area2D node meaning that this script applies to the Deadzone area in the main scene
 ```
@@ -445,7 +445,7 @@ func _on_body_exited(_body):
 	lose = false
 ```
 
-## Lose_message
+### Lose_message
 **Line 1:**\
 Entends the text label meaning that this script applies to the Lose_message in the main scene
 ```
