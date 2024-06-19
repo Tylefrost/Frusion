@@ -371,7 +371,7 @@ Creates is_ready to prevent a function from being called again while the previou
 ```
 
 **Lines 8-9:**\
-Creates main to hold the file path to the main scene
+Creates main to hold the file path to the main scene\
 Creates lose_message to hold the file path to the Lose_message text label in the main scene
 ```
 # accessing losing message and main
