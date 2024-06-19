@@ -5,7 +5,8 @@ Frusion is a 2D game made in the Godot engine where you drop fruit into a bucket
 the more points you get! Try to get the most amount of points before the bucket overflows with fruit. Use your mouse to move around and choose where you want
 to drop your fruits to fuse as many as possible.
 <details>
-<summary>Scenes</summary>
+<summary> ##Scenes</summary>
+	
 ### Main:
 This scene is the one you see when you press play.
 I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. I also added text labels to display the losing message and the score counter
@@ -18,6 +19,7 @@ This scene is the 2nd largest fruit in the game (index position 2 in fruit_types
 ### Watermelon:
 This scene is the largest fruit in the game (index position 3 in fruit_types) and can only be spawned when 2 oranges fuse\
 </details>
+
 ## Scripting:
 
 ### Main:
