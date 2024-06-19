@@ -8,7 +8,8 @@ to drop your fruits.
 ## Main:
 This scene is the one you see when you press play.
 I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. I also added text labels to display the losing message and the score counter
-
+## Main:
+## Main:
 # Scripting:
 
 ## Main:
@@ -351,4 +352,121 @@ Function called by the watermelon when another rigidbody2D passes into or collid
 ```
 func _on_body_entered(body):
 	pass
+```
+
+## Deadzone:
+**Line 1:**\
+Entends the Area2D node meaning that this script applies to the Deadzone area in the main scene
+```
+extends Area2D
+```
+
+**Lines 4-5:**\
+Creates lose to handle when the player has lost\
+Creates is_ready to prevent a function from being called again while the previous call is still ongoing
+```
+# check variables
+@onready var lose = false
+@onready var is_ready = true
+```
+
+**Lines 8-9:**\
+Creates main to hold the file path to the main scene
+Creates lose_message to hold the file path to the Lose_message text label in the main scene
+```
+# accessing losing message and main
+@onready var main = get_node("/root/Main")
+@onready var lose_message = get_node("/root/Main/Lose_message")
+```
+
+**Lines 12-13:**\
+Called only once at the very beginning of the program but isn't neccessary so we pass
+```
+func _ready():
+	pass 
+```
+**Lines 17-18:**\
+Called every frame of the program but isn't necessary so we pass
+```
+func _process(_delta):
+	pass
+```
+**Line 21:**\
+Called when a fruit enters the deadzone
+```
+func _on_body_entered(_body):
+```
+
+**Lines 24-25:**\
+Prevents the function from being called before previous call is finished
+```
+	if is_ready == true:
+		is_ready = false
+```
+
+**Line 28:**\
+First assume the bucket is overflowing
+```	
+		lose = true
+```
+
+**Line 33:**\
+Wait 1 second to check that it's overflowing and not just a fruit falling through the deadzone
+```
+		await get_tree().create_timer(1).timeout
+```
+
+**Lines 38-40:**\
+If the fruit is still in the deadzone after 1 second then the game ends and we make the lose message visible
+```
+		if lose == true:
+			main.gameover()
+			lose_message.lose()
+```
+
+**Line 44:**\
+The function is finished and can be called again
+```
+		is_ready = true
+```
+
+**Lines 50-51:**\
+Function called everytime an object leaves the area to set the lose condition back to false
+since the fruit was just falling through and was not overflowing 
+```
+func _on_body_exited(_body):
+	lose = false
+```
+
+## Lose_message
+**Line 1:**\
+Entends the text label meaning that this script applies to the Lose_message in the main scene
+```
+extends Label
+```
+
+**Line 4:**\
+Called only once at the very beginning of the program
+```
+func _ready():
+```
+
+**Line 7:**\
+Hide the message at the beginning of the game
+```
+	hide() 
+```
+
+**Line 11-12:**\
+Called every frame of the program but isn't necessary so we pass
+```
+func _process(_delta):
+	pass
+```
+
+**Line 15-16:**\
+When we lose make the message visible	
+```	
+func lose():
+	set_visible(true)
 ```
