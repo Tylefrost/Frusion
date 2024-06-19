@@ -1,20 +1,20 @@
 # Frusion
 # Video Demo:
 # Description:
-Frusion is a game where you drop fruit into a bucket and attempt to fuse fruit together by getting 2 of the same size of fruit to touch. The bigger the fusion 
-the more points you get! Try to get the most amount of points before the bucket overfills with fruit. Use your mouse to move around and choose where you want
-to drop your fruits.
+Frusion is a 2D game made in the Godot engine where you drop fruit into a bucket and attempt to fuse fruit together into a larger fruit by getting 2 of the same size of fruit to touch. The bigger the fusion 
+the more points you get! Try to get the most amount of points before the bucket overflows with fruit. Use your mouse to move around and choose where you want
+to drop your fruits to fuse as many as possible.
 # Scenes:
-### Main:
+## Main:
 This scene is the one you see when you press play.
 I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. I also added text labels to display the losing message and the score counter
-### Grape:
+## Grape:
 This scene is the smallest fruit in the game (index position 0 in fruit_types) and can only be spawned in the dropper
-### Strawberry:
+## Strawberry:
 This scene is the 2nd smallest fruit in the game (index position 1 in fruit_types) and can be spawned in the dropper or when 2 grapes fuse
-### Orange:
+## Orange:
 This scene is the 2nd largest fruit in the game (index position 2 in fruit_types) and can only be spawned when 2 strawberries fuse
-### Watermelon:
+## Watermelon:
 This scene is the largest fruit in the game (index position 3 in fruit_types) and can only be spawned when 2 oranges fuse\
 
 # Scripting:
@@ -183,7 +183,7 @@ func gameover():
 	get_tree().paused = true
 ```
 
-## Grape:
+### Grape:
 **Line 1:**\
 Extends the RigidBody2D node meaning that this script applies to the Grape scene
 ```
