@@ -1,6 +1,6 @@
 # Frusion
 # Video Demo:
-# Description:
+#### Description:
 Frusion is a 2D game made in the Godot engine where you drop fruit into a bucket and attempt to fuse fruit together into a larger fruit by getting 2 of the same size of fruit to touch. The bigger the fusion 
 the more points you get! Try to get the most amount of points before the bucket overflows with fruit. Use your mouse to move around and choose where you want
 to drop your fruits to fuse as many as possible.
