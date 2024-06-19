@@ -8,8 +8,15 @@ to drop your fruits.
 ## Main:
 This scene is the one you see when you press play.
 I used stock wall sprite assets from Godot to make a bunch of wall sprites. Then I arranged the walls to make a cube without the top (bucket). After that I simply added collision boxes for each wall to prevent the fruit from “falling through”. I also added text labels to display the losing message and the score counter
-## Main:
-## Main:
+## Grape:
+This scene is the smallest fruit in the game (index position 0 in fruit_types) and can only be spawned in the dropper
+## Strawberry:
+This scene is the 2nd smallest fruit in the game (index position 1 in fruit_types) and can be spawned in the dropper or when 2 grapes fuse
+## Orange:
+This scene is the 2nd largest fruit in the game (index position 2 in fruit_types) and can only be spawned when 2 strawberries fuse
+## Watermelon:
+This scene is the largest fruit in the game (index position 3 in fruit_types) and can only be spawned when 2 oranges fuse
+
 # Scripting:
 
 ## Main:
